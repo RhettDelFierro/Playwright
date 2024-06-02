@@ -33,26 +33,16 @@ const assignLeave = {
         await canOption.click()
     },
     async _fillDateRange() {
-        // Calculate dates for 'From Date' and 'To Date'
-        const tomorrow = new Date()
-        tomorrow.setDate(tomorrow.getDate() + 1)
-        const nextWeek = new Date()
-        nextWeek.setDate(nextWeek.getDate() + 8)
-
-        // Format dates to 'yyyy-dd-MM'
-        const formatDate = (date: Date) => {
-            const yyyy = date.getFullYear()
-            const dd = String(date.getDate()).padStart(2, '0')
-            const MM = String(date.getMonth() + 1).padStart(2, '0')
-            return `${yyyy}-${dd}-${MM}`
-        }
-
-        const fromDate = formatDate(tomorrow)
-        const toDate = formatDate(nextWeek)
-
-        // Fill in the dates
-        await this.page.fill(configSelectors.leaveFromDate, fromDate) // Replace with your actual selector
-        await this.page.fill(configSelectors.leaveToDate, toDate) // Replace with your actual selector
+        const fromDate = this._formatDate(new Date(Date.now() + 24 * 60 * 60 * 1000)); // Tomorrow
+        const toDate = this._formatDate(new Date(Date.now() + 8 * 24 * 60 * 60 * 1000)); // Next week
+        await this.page.fill(configSelectors.leaveFromDate, fromDate);
+        await this.page.fill(configSelectors.leaveToDate, toDate);
+    },
+    _formatDate(date: Date): string {
+        const yyyy = date.getFullYear();
+        const dd = String(date.getDate()).padStart(2, '0');
+        const MM = String(date.getMonth() + 1).padStart(2, '0');
+        return `${yyyy}-${dd}-${MM}`;
     }
 }
 
