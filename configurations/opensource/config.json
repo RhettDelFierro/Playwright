@@ -1,0 +1,32 @@
+{
+  "login": {
+    "username": "Admin",
+    "password": "admin123"
+  },
+  "leave": {
+    "employee1": "Employee One"
+  },
+  "urls": {
+    "loginPage": "https://opensource-demo.orangehrmlive.com/web/index.php/auth/login",
+    "dashboardPage": "https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index",
+    "profilePage": "https://opensource-demo.orangehrmlive.com/web/index.php/pim/viewMyDetails"
+  },
+  "selectors": {
+    "profilePicture": "//img[@alt='profile picture']",
+    "logoutButton": "//a[@role='menuitem' and text()='Logout']",
+    "usernameInput": "[name='username']",
+    "passwordInput": "[name='password']",
+    "loginButton": "//button[@type='submit']",
+    "forgotPasswordLink": "//p[contains(@class, 'oxd-text') and contains(@class, 'oxd-text--p') and contains(@class, 'orangehrm-login-forgot-header')]",
+    "cancelButton": "//button[@type='button']",
+    "assignLeaveButton": "//button[@type='button' and @title='Assign Leave']",
+    "leaveEmployeeNameInput": "//input[@placeholder='Type for hints...']",
+    "leaveTypeDropDown": "//div[contains(@class, 'oxd-select-wrapper')]",
+    "leaveFromDate": "//label[text()='From Date']/following-sibling::div//input[@placeholder='yyyy-dd-mm']",
+    "leaveToDate": "//label[text()='To Date']/following-sibling::div//input[@placeholder='yyyy-dd-mm']",
+    "firstNameInput": "//input[@name='firstName']",
+    "lastNameInput": "//input[@name='lastName']",
+    "saveButton": "//button[@type='submit' and text()=' Save ']",
+    "errorMessage": "//span[@class='oxd-text oxd-text--span oxd-input-field-error-message oxd-input-group__message']"
+  }
+}

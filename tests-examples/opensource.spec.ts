@@ -24,6 +24,14 @@ async function cancelForgotPassword(page: Page) {
     await page.click('//button[@type="button"]');
 }
 
+// Using basic methods.
+async function clickCancelButton(page: Page) {
+    // Wait for the cancel button to be clickable and then click it
+    const cancelBtn = page.locator('//button[@type="button"]');
+    await cancelBtn.waitFor({ state: 'visible' });
+    await cancelBtn.click();
+}
+
 test.describe('Login and Logout Test', () => {
     test('should login and logout successfully', async ({ page }) => {
         await login(page, 'Admin', 'admin123');
