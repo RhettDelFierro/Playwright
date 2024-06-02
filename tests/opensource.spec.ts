@@ -36,6 +36,7 @@ test.describe('Login and Logout Test', () => {
 
     test('should interact with forgot password and cancel', async ({ page }) => {
         await login(page, 'Admin', 'admin123');
+        await logout(page);
         await interactWithForgotPassword(page);
         await cancelForgotPassword(page);
 
