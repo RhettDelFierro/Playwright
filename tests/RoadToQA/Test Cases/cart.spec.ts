@@ -48,24 +48,17 @@ test.skip('As A Buyer I want the "Add To Cart" To add items to the cart', async 
     const dropdown = await page.$('select'); // Assuming there's only one select element
     await dropdown.selectOption({ index: 0 });
 
-    // <-----------------------Step 5: Fill in the quantity as 1-------------------------------------------------------->
+    // <-----------------------Step 5: Automate the Purchase----------------------------------------------------------->
     await page.fill('input[type="number"]', '1');
     await page.click('div[role="button"]:has-text("Add To Cart")');
 
-    // Wait for the cart quantity to update to "1"
-    // await page.waitForFunction(() => {
-    //     const cartQuantityElement = document.querySelector('span.sqs-cart-quantity');
-    //     return cartQuantityElement && cartQuantityElement.textContent.trim() === '1';
-    // }, { timeout: 30000 });
+    // Wait probably need to wait for the cart quantity to update to "1"
 
-    // <-----------------------Step 7: Click on the cart icon to navigate to the cart page---------------------------->
+    // <-----------------------Step 6: Check the cart------------------------------------------------------------------>
     await page.click('.showOnDesktop .header-actions a[aria-label*="items in cart"]');
-
-    // Wait for the cart page to load
     await page.waitForURL('https://reed-finch-j8jr.squarespace.com/cart');
     currentUrl = page.url();
     expect(currentUrl).toBe('https://reed-finch-j8jr.squarespace.com/cart');
 
-    // Take a screenshot for verification
     await page.screenshot({ path: 'complete.png' });
 });
