@@ -5,3 +5,8 @@ node_modules/
 /playwright/.cache/
 .idea
 package-lock.json
+.DS_Store
+*.png
+/configurations/.DS_Store
+/pageObjects/.DS_Store
+/tests/.DS_Store
