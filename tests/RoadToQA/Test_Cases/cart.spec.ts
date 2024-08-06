@@ -65,14 +65,17 @@ test('As A Buyer I want the "Add To Cart" To add items to the cart', async ({ pa
 });
 
 
-test.only('As a Buyer I want to delete items from my cart /checkout using the Delete options (X / Remove)', async ({ page }) => {
+test('As a Buyer I want to delete items from my cart /checkout using the Delete options (X / Remove)', async ({ page }) => {
     await productPage.enterPasswordAndSubmit(page)
+    await page.screenshot({ path: 'Step 1 - Visit Homepage.png' });
     await page.getByRole('link', { name: 'Shop neutrals' }).click()
     await productPage.addItemToCartFromProductPage(page, 'Starry Onesie', '0–3M', '1')
+    await page.screenshot({ path: 'Step 2 - Add Item To Cart.png' });
     await page.getByRole('link', { name: 'One item in cart' }).click();
+    await page.screenshot({ path: 'Step 3 - View Cart.png' });
     await page.locator('[data-test="remove-item"]').click();
     await expect(page.locator('[data-test="empty-message"]')).toContainText('You have nothing in your shopping cart.');
-    await page.screenshot({ path: 'complete.png' });
+    await page.screenshot({ path: 'Step 4 - Delete Item.png' });
 });
 
 test('As a Buyer I want to delete items from my cart /checkout using the Delete options (X / Remove) - multiple items', async ({ page }) => {
