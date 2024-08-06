@@ -10,4 +10,4 @@ package-lock.json
 /configurations/.DS_Store
 /pageObjects/.DS_Store
 /tests/.DS_Store
-/configurations/RoadToQA/configuation.json
+./configurations/RoadToQA/configuation.json
