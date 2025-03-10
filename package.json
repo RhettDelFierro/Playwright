@@ -1,19 +1,21 @@
 {
   "name": "playwright",
   "version": "1.0.0",
-  "description": "Automated testing framework using Playwright",
+  "description": "Automated testing framework using Playwright with Midscene.js natural language",
   "main": "index.js",
   "scripts": {
     "test": "playwright test",
     "test:headed": "playwright test --headed",
     "test:ui": "playwright test --ui",
-    "report": "playwright show-report"
+    "report": "playwright show-report",
+    "test:natural": "playwright test --config=midscene.config.ts"
   },
-  "keywords": ["testing", "automation", "playwright"],
+  "keywords": ["testing", "automation", "playwright", "midscene", "natural-language", "ai-testing"],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.44.1",
-    "@types/node": "^20.13.0"
+    "@types/node": "^20.13.0",
+    "midscene": "^0.12.0"
   }
 }
